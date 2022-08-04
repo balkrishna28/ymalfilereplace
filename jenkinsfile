@@ -7,7 +7,7 @@ script {
         // echo "My secret text is '${SECRET}'"
         
         readProp = readProperties(file: 'test.yml')
-        readProp.firstname == ${SECRET}
+        readProp.firstname = "\nUsername: ${SECRET}"
 
         writeContent = readProp.collect{"${it.key}=${it.value}"}.join('\n')
         writeFile file: 'test.yml', text: writeContent
