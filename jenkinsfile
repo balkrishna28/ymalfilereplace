@@ -1,6 +1,9 @@
 def readProp;
 script {
-    readProp = readProperties(file: 'test.yml')
+    node () {
+        checkout scm
+        readProp = readProperties(file: 'test.yml')
+    }
 }
 
 
