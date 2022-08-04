@@ -7,7 +7,7 @@ pipeline {
                 script {
                     def readProp;
                     readProp = readProperties file: 'test.yml'
-                    echo """${readProp['details.firstname']}"""
+                    echo """${readProp['details']}"""
                 }
             }
         }
