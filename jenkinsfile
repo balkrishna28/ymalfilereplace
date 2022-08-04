@@ -9,10 +9,10 @@ script {
         readProp = readProperties(file: 'test.yml')
         //readProp.firstname = "\nsecret: ${SECRET}"
 
-        // readProp.firstname = "santos"
+        readProp.firstname = "santos"
 
-        // writeContent = readProp.collect{"${it.key}=${it.value}"}.join('\n')
-        // writeFile file: 'test.yml', text: writeContent
+        writeContent = readProp.collect{"${it.key}=${it.value}"}.join('\n')
+        writeFile file: 'test.yml', text: writeContent
 
         }
     }
