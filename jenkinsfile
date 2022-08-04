@@ -7,7 +7,7 @@ script {
         // echo "My secret text is '${SECRET}'"
         
         readProp = readProperties(file: 'test.yml')
-        readProp.firstname = '${SECRET}'
+        readProp.firstname == ${SECRET}
 
         writeContent = readProp.collect{"${it.key}=${it.value}"}.join('\n')
         writeFile file: 'test.yml', text: writeContent
@@ -24,7 +24,6 @@ pipeline {
         stage('ymalfile') {
             steps {
                 script {
-                    echo "test"
                     echo """${readProp['firstname']}"""
                 }
             }
