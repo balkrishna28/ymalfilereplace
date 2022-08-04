@@ -2,11 +2,16 @@ def readProp;
 script {
     node () {
         checkout scm
+        withCredentials([string(credentialsId: 'fromjenkins', variable: 'SECRET')]) {
+        echo "My secret text is '${SECRET}'"
+        
         readProp = readProperties(file: 'test.yml')
         readProp.firstname = "lak"
 
         writeContent = readProp.collect{"${it.key}=${it.value}"}.join('\n')
         writeFile file: 'test.yml', text: writeContent
+
+        }
     }
 }
 
