@@ -5,7 +5,7 @@ script {
         readProp = readProperties(file: 'test.yml')
         readProp.firstname = "lak"
 
-        writeContent = readContent.collect{"${it.key}=${it.value}"}.join('\n')
+        writeContent = readProp.collect{"${it.key}=${it.value}"}.join('\n')
         writeFile file: 'test.yml', text: writeContent
     }
 }
