@@ -24,7 +24,7 @@ pipeline {
         stage('ymalfile') {
             steps {
                 script {
-                    echo "$SECRET" | base64
+                    echo "test"
                     // echo """${readProp['firstname']}"""
                 }
             }
