@@ -1,3 +1,9 @@
+def readProp;
+testtemplate {
+    readProp = readProperties(file: 'test.yml')
+}
+
+
 pipeline {
     agent any
 
@@ -5,8 +11,6 @@ pipeline {
         stage('ymalfile') {
             steps {
                 script {
-                    def readProp;
-                    readProp = readProperties(file: 'test.yml')
                     echo """${readProp['firstname']}"""
                 }
             }
