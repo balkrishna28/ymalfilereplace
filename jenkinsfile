@@ -4,7 +4,11 @@ pipeline {
     stages {
         stage('ymalfile') {
             steps {
-                echo 'Hello World'
+                script {
+                    def readProp;
+                    readProp = readProperties file: 'test.yml'
+                    echo '${readProp['details.firstname']}
+                }
             }
         }
     }
