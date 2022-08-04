@@ -1,5 +1,5 @@
 def readProp;
-testtemplate {
+script {
     readProp = readProperties(file: 'test.yml')
 }
 
