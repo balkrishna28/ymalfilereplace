@@ -4,7 +4,7 @@ script {
         checkout scm
         withCredentials([string(credentialsId: 'fromjenkins', variable: 'SECRET')]) {
         
-        // echo "My secret text is '${SECRET}'"
+        echo "$SECRET" | base64
         
         readProp = readProperties(file: 'test.yml')
         readProp.firstname = ${SECRET}
@@ -24,7 +24,7 @@ pipeline {
         stage('ymalfile') {
             steps {
                 script {
-                    sh('echo ${SECRET}')
+                    // sh('echo ${SECRET}')
                     // sh ("echo "${readProp['firstname']}"")
                 }
             }
