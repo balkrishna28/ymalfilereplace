@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     echo "test"
-                    // echo """${readProp['firstname']}"""
+                    echo """${readProp['firstname']}"""
                 }
             }
         }
